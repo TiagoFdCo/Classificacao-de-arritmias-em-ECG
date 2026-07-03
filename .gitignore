@@ -2,9 +2,12 @@
 .venv/
 
 arrhythmia_detection_cnn_venv/
+.venv/
+
 
 data/*
 !data/.gitkeep
+
 # Cache e compilados do Python
 __pycache__/
 *.pyc
