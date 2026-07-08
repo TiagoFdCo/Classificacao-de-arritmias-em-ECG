@@ -89,3 +89,8 @@ ax.plot(t4, integrated_signal, linewidth=1.0, color='green', label='integrated E
 plt.xlim([50, 55])
 plt.legend()
 plt.show()
+
+
+#improving algorithm to short function
+def pan_thompkins(ecg_filt, fs):
+    abc = 'abc'
