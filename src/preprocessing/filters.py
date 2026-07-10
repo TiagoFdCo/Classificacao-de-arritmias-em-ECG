@@ -25,17 +25,3 @@ sos = scipy.signal.butter(10,
 
 # apply with zero phase shift (forward-backward)
 ecg_filt = scipy.signal.sosfiltfilt(sos, ecg)
-
-# time axis in seconds
-t = np.arange(ecg.size) / fs
-
-# plot raw vs filtered
-fig, ax = plt.subplots()
-ax.plot(t, ecg,      linewidth=1.0, color='blue', label='original ECG')
-ax.plot(t, ecg_filt, linewidth=1.0, color='red',  label='filtered ECG')
-
-plt.xlabel('time (s)')
-plt.ylabel('amplitude (mV)')
-plt.xlim([50, 55])                    # 5-second window. Changeable 
-plt.legend()
-plt.show()

@@ -32,39 +32,13 @@ window_size = int(0.150 * fs)          # 54 amostras para fs=360
 window = np.ones(window_size) / window_size
 
 #improving algorithm to short function
-def pan_thompkins(ecg_filt, fs):
+def pan_tompkins(ecg_filt, fs):
     diff = np.diff(ecg_filt)
     squared = diff ** 2
     integrated = np.convolve(squared, window, mode='same')
 
-    #plotting only
-    t1 = np.arange(ecg_filt.size) / fs
-    t2 = np.arange(diff.size) / fs
-    t3 = np.arange(squared.size) / fs
-    t4 = np.arange(integrated.size) / fs
-    fig1, ax = plt.subplots()
-    ax.plot(t1, ecg_filt, linewidth=1.0, color='green', label='pass-band filtered ECG signal')
-    plt.xlim([50, 55])
-    plt.legend()
-    plt.show()
-    fig2, ax = plt.subplots()
-    ax.plot(t2, diff, linewidth=1.0, color='red', label='differentiated ECG signal')
-    plt.xlim([50, 55])
-    plt.legend()
-    plt.show()
-    fig3, ax = plt.subplots()
-    ax.plot(t3, squared, linewidth=1.0, color='blue', label='squared ECG signal')
-    plt.xlim([50, 55])
-    plt.legend()
-    plt.show()
-    fig4, ax = plt.subplots()
-    ax.plot(t4, integrated, linewidth=1.0, color='purple', label='integrated ECG signal')
-    plt.xlim([50, 55])
-    plt.legend()
-    plt.show()
-
     return integrated
 
 
-pan_thompkins(ecg_filt, fs)
+pan_tompkins(ecg_filt, fs)
 
